@@ -100,9 +100,9 @@
 	\begin{frame}[fragile]{Modifications}	
 		To save modifications, use the command \texttt{git commit}. \newline 
 		
-		Each time you made a commit, a text editor appears in your terminal and you have to write a short comment to describe your modification. \newline
+		Each time you made a commit, a text editor appears in your terminal and you have to write a short comment to describe your modifications. \newline
 		
-		If you worked only on files that were already in the git repository you can also list the file directly in the commit command. 
+		If you modified only on files that were already in the git repository you can also list the files directly in the commit command. 
 		\begin{verbatim}
 		$ git commit FILE_NAMES
 		\end{verbatim}
@@ -111,7 +111,7 @@
 		
 		\texttt{-a} allows you to save all the modified files with the same comment.
 		 
-		\texttt{-m "Comment"} allows you to directly write your commit message. 		
+		\texttt{-m "Comment"} allows you to directly write your commit message in the command. 		
 	\end{frame}
 	\begin{frame}[fragile]{Sharing modifications}
 		For the moment, all your modifications are only saved in your local copy of your project. 
@@ -123,9 +123,18 @@
 		\end{verbatim}
 		
 		You may be asked to enter your username and password at this point.
+		
+		You don't have to push every time you commit. You can push several commits at once. 
 	\end{frame}
-	\begin{frame}{Getting updated code \& solving conflicts}
-		\textit{"What if one of my collaborator worked on the same file as me and we both modify the same thing?"}
+	\begin{frame}[fragile]{Getting updated code \& solving conflicts}
+		If you are working with other people, to obtain the updated version of the project use 
+		\begin{verbatim}
+		$ git pull
+		\end{verbatim}
+		
+		\textit{"What if one of my collaborator worked at the same time as me?"}
+		
+		If this happens you will get an error message when you try to push. Then read and follow the instructions. 
 	\end{frame}
 	\begin{frame}{Compare different versions}
 		DIFF (meld)
