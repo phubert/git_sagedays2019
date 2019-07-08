@@ -8,18 +8,16 @@
 
 \newtheorem{exo}{Exercise}
 
+
 \title{GIT tutorial}
 \author{Pauline Hubert and Nadia Lafrenière}
 \date{FPSAC software days, July 2019}
 \begin{document}
 	\maketitle
 	\begin{frame}{Motivation}
-		Dossier de Duncan
-		\pause
 		PhD Comics
-		\pause
-		Long échange de courriels
 	\end{frame}
+
 	\begin{frame}{What software to use? Pros and cons}
 		\begin{tabular}{lp{0.35\linewidth}p{0.35\linewidth}}
 %			\hline
@@ -35,6 +33,7 @@
 %			\hline
 		\end{tabular}
 	\end{frame}
+
 	\begin{frame}{What is Git?}
 		Git is a version control software. \newline
 		
@@ -44,6 +43,7 @@
 			\item It allows many people to work in parallel.
 		\end{itemize}	
 	\end{frame}
+
 	\begin{frame}{Online servers for Git}
 		Store your data somewhere. \newline 
 			\begin{itemize}
@@ -52,6 +52,7 @@
 			\end{itemize}
 		If you use an online server, you will also have a local version on your computer. If you want to work with other people, you have to use a server. 
 	\end{frame}
+
 	\begin{frame}{Now that you are convinced... Installation}
 		\begin{itemize}
 			\item Linux : Type in shell \texttt{sudo apt install git}
@@ -59,6 +60,7 @@
 			\item Windows : Go to \url{gitforwindows.com}
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}[fragile]{Configuration}
 	To share code, you need to identify yourself:
 	\begin{verbatim}
@@ -78,9 +80,29 @@ $ git status
 		\end{center}
 	\end{frame}
 
-	\begin{frame}{First steps: Creating a folder + initializing}
-
+	\begin{frame}[fragile]{First steps: Creating a folder and initializing}
+		Two ways to start a new project : 
+		\begin{itemize}
+			\item Use an existant project. 
+			\item Create a new project on Github and clone it. \newline
+		\end{itemize}
+	
+		If your already have a project.
+		\begin{enumerate}
+		\item  In the directory containing your files run the command 
+		\texttt{git init}.
+		
+		\item  Then you need to put your files on Github. For that, create a new \emph{empty} repository on Github and follow the instructions.
+		
+		The commands you will need are 
+		\begin{verbatim}
+			$ git remote add origin REPO_URL
+			$ git push -u origin master
+		\end{verbatim}
+		
+		\end{enumerate}   
 	\end{frame}
+
 	\begin{frame}[fragile]{Getting code: cloning}
 	To get code from a remote repository:
 	\begin{verbatim}
@@ -94,50 +116,103 @@ $ git clone https://address-of-the-repo.git
 		\url{https://github.com/phubert/git_sagedays2019.git}
 	\end{exo}
 	\end{frame}
-	\begin{frame}{Modifications}
+
+	\begin{frame}[fragile]{Modifications}
+		Once you have worked on your code/text, you will want to save the modifications. \newline
 		
+		To select the (new or old) files that will be added to the modification use the command
+		\begin{verbatim}
+			$ git add FILE_NAMES
+		\end{verbatim}
 	\end{frame}
-	\begin{frame}{Sharing modifications}
-		contenu...
+
+	\begin{frame}[fragile]{Modifications}	
+		To save modifications, use the command \texttt{git commit}. \newline 
+		
+		Each time you made a commit, a text editor appears in your terminal and you have to write a short comment to describe your modifications. \newline
+		
+		If you modified only on files that were already in the git repository you can also list the files directly in the commit command. 
+		\begin{verbatim}
+		$ git commit FILE_NAMES
+		\end{verbatim}
+		
+		Two usefull options : \texttt{git commit -OPTS}
+		
+		\texttt{-a} allows you to save all the modified files with the same comment.
+		 
+		\texttt{-m "Comment"} allows you to directly write your commit message in the command. 		
 	\end{frame}
-	\begin{frame}{Getting updated code \& solving conflicts}
+
+	\begin{frame}[fragile]{Sharing modifications}
+		For the moment, all your modifications are only saved in your local copy of your project. 
+		
+		After committed, you may want to share your modifications by adding them in the online repository. The command for that is 
+		
+		\begin{verbatim}
+		$ git push
+		\end{verbatim}
+		
+		You may be asked to enter your username and password at this point.
+		
+		You don't have to push every time you commit. You can push several commits at once. 
+	\end{frame}
 	
+	\begin{frame}[fragile]{Getting updated code \& solving conflicts}
+		If you are working with other people, to obtain the updated version of the project use 
+		\begin{verbatim}
+		$ git pull
+		\end{verbatim}
+		
+		\textit{"What if one of my collaborator worked at the same time as me?"}
+		
+		If this happens you will get an error message when you try to push. Then read and follow the instructions. 
 	\end{frame}
+
 	\begin{frame}{Reviewing changes}
-		You can look at what other people did:
-		\begin{itemize}
-			\item on a software\\
+	You can look at what other people did:
+	\begin{itemize}
+		\item on a software\\
 		\includegraphics[width=0.8\linewidth]{diff_on_sage_2}  %ticket 28070
-			\item on your files\\
+		\item on your files\\
 		\includegraphics[width=0.8\linewidth]{diff_on_latex}
-		\end{itemize}
+	\end{itemize}
 	\end{frame}
+
 	\begin{frame}[fragile]{Reviewing changes}
 	To know what has been change since last commit:
 	\begin{verbatim}
-$ git diff
+	$ git diff
 	\end{verbatim}
 	or since commit1 
-\begin{verbatim}
-$ git diff commit1
-\end{verbatim}
+	\begin{verbatim}
+	$ git diff commit1
+	\end{verbatim}
 	or between commit1 and commit2
 	\begin{verbatim}
-$ git diff commit1 commit2
+	$ git diff commit1 commit2
 	\end{verbatim}
 	\begin{tcolorbox}[colback=cyan!30]
-		To recover the "name" of commit1, you must type \texttt{git log} (this is the history of the repository). The name is very long!\\
-		(e.g.: df14e25763073c18e30ebeede3d34ef466dd08c8)
+	To recover the "name" of commit1, you must type \texttt{git log} (this is the history of the repository). The name is very long!\\
+	(e.g.: df14e25763073c18e30ebeede3d34ef466dd08c8)
 	\end{tcolorbox}
 	\end{frame}
+
 	\begin{frame}{Reviewing changes}
-		You can do it with a graphical user interface (e.g. Meld \includegraphics[height=1em]{meld_logo}).\\
-		\vspace{1em}
-		\includegraphics[width=\linewidth]{meld_ps}
+	You can do it with a graphical user interface (e.g. Meld \includegraphics[height=1em]{meld_logo}).\\
+	\vspace{1em}
+	\includegraphics[width=\linewidth]{meld_ps}
 	\end{frame}
-	\begin{frame}
+
+	\begin{frame}{Branches}
 		branches
 	\end{frame}
+
+	\begin{frame}{Conclusion/Moral}
+	Read the comments.
+	
+	Add ref here. 
+	\end{frame}
+
 	\begin{frame}{Your turn!}
 	Two-by-two, try the following:
 		\begin{itemize}
@@ -149,4 +224,6 @@ $ git diff commit1 commit2
 			\item Get the modifications and correct the mistakes. Send everything back to us.
 		\end{itemize}
 	\end{frame}
+
+
 \end{document}
