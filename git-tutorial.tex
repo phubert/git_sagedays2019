@@ -5,6 +5,7 @@
 \usepackage{amsmath, amsfonts, amsthm, amssymb}
 \usepackage{hyperref}
 
+
 \title{GIT tutorial}
 \author{Pauline Hubert and Nadia Lafrenière}
 \date{FPSAC software days, July 2019}
@@ -58,10 +59,6 @@
 	\end{frame}
 	\begin{frame}[fragile]{Configuration}
 	To share code, you need to identify yourself:
-	\begin{lstlisting}[language=bash,fontadjust]
-$ git config --global user.name "John Doe"
-$ git config --global user.email "john.doe@email.com"
-	\end{lstlisting}
 	\begin{verbatim}
 		$ git config --global user.name "John Doe"
 		$ git config --global user.email "john.doe@email.com"
@@ -71,11 +68,27 @@ $ git config --global user.email "john.doe@email.com"
 	\begin{frame}{What's happening?}
 		git status
 	\end{frame}
-	\begin{frame}{First steps: Creating a folder + initializing}
-		To get code from a remote repository:
+	\begin{frame}[fragile]{First steps: Creating a folder and initializing}
+		Two ways to start a new project : 
+		\begin{itemize}
+			\item Use an existant project. 
+			\item Create a new project on Github and clone it. \newline
+		\end{itemize}
+	
+		If your already have a project.
+		\begin{enumerate}
+		\item  In the directory containing your files run the command 
+		\texttt{git init}.
+		
+		\item  Then you need to put your files on Github. For that, create a new \emph{empty} repository on Github and follow the instructions.
+		
+		The commands you will need are 
 		\begin{verbatim}
-		$ git clone https://address-of-the-repo.git
+			$ git remote add origin REPO_URL
+			$ git push -u origin master
 		\end{verbatim}
+		
+		\end{enumerate}   
 	\end{frame}
 	\begin{frame}{Getting code : cloning}
 		contenu...
