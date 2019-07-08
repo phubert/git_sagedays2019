@@ -89,23 +89,52 @@
 	\begin{frame}{Getting code : cloning}
 		contenu...
 	\end{frame}
-	\begin{frame}{Modifications}
-		add and commit 
+	\begin{frame}[fragile]{Modifications}
+		Once you have worked on your code/text, you will want to save the modifications. \newline
+		
+		To select the (new or old) files that will be added to the modification use the command
+		\begin{verbatim}
+			$ git add FILE_NAMES
+		\end{verbatim}
 	\end{frame}
-	\begin{frame}{Sharing modifications}
-		push
+	\begin{frame}[fragile]{Modifications}	
+		To save modifications, use the command \texttt{git commit}. \newline 
+		
+		Each time you made a commit, a text editor appears in your terminal and you have to write a short comment to describe your modification. \newline
+		
+		If you worked only on files that were already in the git repository you can also list the file directly in the commit command. 
+		\begin{verbatim}
+		$ git commit FILE_NAMES
+		\end{verbatim}
+		
+		Two usefull options : \texttt{git commit -OPTS}
+		
+		\texttt{-a} allows you to save all the modified files with the same comment.
+		 
+		\texttt{-m "Comment"} allows you to directly write your commit message. 		
+	\end{frame}
+	\begin{frame}[fragile]{Sharing modifications}
+		For the moment, all your modifications are only saved in your local copy of your project. 
+		
+		After committed, you may want to share your modifications by adding them in the online repository. The command for that is 
+		
+		\begin{verbatim}
+		$ git push
+		\end{verbatim}
+		
+		You may be asked to enter your username and password at this point.
 	\end{frame}
 	\begin{frame}{Getting updated code \& solving conflicts}
-		pull
+		\textit{"What if one of my collaborator worked on the same file as me and we both modify the same thing?"}
 	\end{frame}
-	\begin{frame}
+	\begin{frame}{Compare different versions}
 		DIFF (meld)
 	\end{frame}
-	\begin{frame}
+	\begin{frame}{Branches}
 		branches
 	\end{frame}
 	\begin{frame}{Conclusion/Moral}
-	Read the comments
+	Read the comments.
 	
 	Add ref here. 
 	\end{frame}
