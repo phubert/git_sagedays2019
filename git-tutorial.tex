@@ -100,7 +100,7 @@ $ git status
 	\begin{frame}[fragile]{First steps: Starting to use Git on a project}
 		Two ways to start: 
 		\begin{itemize}
-			\item Use an existing local project.https://git-scm.com/download/gui/linux
+			\item Use an existing local project.
 			\item Create a new project on a server (e.g. \href{https://github.com/}{Github}) and clone it. \newline
 		\end{itemize}
 	
@@ -123,25 +123,25 @@ $ git status
 	\begin{frame}[fragile]{Modifications}
 		Once you have worked on your code/text, you will want to save the modifications. \newline
 		
-		To select the (new or old) files that will be added to the modification use the command
+		To select the (new or modified) files that will be added to the modification use the command
 		\begin{verbatim}
-			$ git add FILE_NAMES
+			$ git add FILE_NAME1 FILE_NAME2 ...
 		\end{verbatim}
 	\end{frame}
 
 	\begin{frame}[fragile]{Modifications}	
 		To save modifications, use the command \texttt{git commit}. \newline 
 		
-		Each time you made a commit, a text editor appears in your terminal and you have to write a short comment to describe your modifications. \newline
+		Each time you make a commit, a text editor appears in your terminal and you have to write a short (but \textit{meaningful}) comment to describe your modifications. \newline
 		
 		If you modified only files that were already in the git repository you can also list the files directly in the commit command. 
 		\begin{verbatim}
-		$ git commit FILE_NAMES
+		$ git commit FILE_NAME1 FILE_NAME2 ...
 		\end{verbatim}
 		
-		Two usefull options : \texttt{git commit -OPTS}
+		Two usefull options : \texttt{git commit -OPTS}, where \texttt{-OPTS} is
 		
-		\texttt{-a} allows you to save all the modified files with the same comment.
+		\texttt{-a} allows you to save all the modified files with the same commit message.
 		 
 		\texttt{-m "Comment"} allows you to directly write your commit message in the command. 		
 	\end{frame}
@@ -149,7 +149,7 @@ $ git status
 	\begin{frame}[fragile]{Sharing modifications}
 		For the moment, all your modifications are only saved in your local copy of your project. 
 		
-		After committed, you may want to share your modifications by adding them in the online repository. The command for that is 
+		After committing, you may want to share your modifications by adding them to the online repository. The command for that is 
 		
 		\begin{verbatim}
 		$ git push
@@ -157,27 +157,27 @@ $ git status
 		
 		You may be asked to enter your username and password at this point.
 		
-		You don't have to push every time you commit. You can push several commits at once. 
+		You don't have to push every time you commit. You can push several commits at once, but your collaborators will not see the changes until you push. 
 	\end{frame}
 	
 	\begin{frame}[fragile]{Getting updated code \& solving conflicts}
-		If you are working with other people, to obtain the updated version of the project use 
+		To obtain the updated version of the project, use
 		\begin{verbatim}
 		$ git pull
 		\end{verbatim}
 		
 		\textit{"What if one of my collaborator worked at the same time as me?"}
 		
-		If this happens you will get an error message when you try to push. Then read and follow the instructions!  
+		If this happens, you will get an error message when you try to push. Then, read and follow the instructions!  
 	\end{frame}
 
 	\begin{frame}{Reviewing changes}
 	You can look at what other people did:
 	\begin{itemize}
-		\item on a software\\
-		\includegraphics[width=0.8\linewidth]{diff_on_sage_2}  %ticket 28070
-		\item on your files\\
-		\includegraphics[width=0.8\linewidth]{diff_on_latex}
+		\only<1>{\item on a software\\
+		\includegraphics[width=1.1\linewidth]{diff_on_sage_2}}  %ticket 28070
+		\only<2>{\item on your files\\
+		\includegraphics[width=1\linewidth]{diff_on_latex}}
 	\end{itemize}
 	\end{frame}
 
@@ -236,12 +236,12 @@ $ git status
 	\begin{frame}{Your turn!}
 	Two-by-two, try the following:
 		\begin{itemize}
-			\item Get in the Exercise folder of our repository (you \textit{need} to clone the repository from \url{https://github.com/phubert/git_sagedays2019.git} ).
+			\item Go to the Exercise folder of our repository (you \textit{need} to clone the repository from \url{https://github.com/phubert/git_sagedays2019.git} ).
 			\item Create your own branch (name it after the concatenation of your names).
 			\item Edit three of the files.
 			\item Send your files to the server. \textit{Don't forget to put a relevant commit message!}
 			\item We will add mistakes in your files.
-			\item Get the modifications and correct the mistakes. Send everything back to us.
+			\item Get the modifications and correct the mistakes. Send everything back to us (not by email, of course...)
 		\end{itemize}
 	\end{frame}
 
