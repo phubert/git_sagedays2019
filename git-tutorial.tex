@@ -15,7 +15,10 @@
 \begin{document}
 	\maketitle
 	\begin{frame}{Motivation}
-		PhD Comics
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.28]{phd101212s.png}
+		\end{figure}
 	\end{frame}
 
 	\begin{frame}{What software to use? Pros and cons}
@@ -35,7 +38,7 @@
 	\end{frame}
 
 	\begin{frame}{What is Git?}
-		Git is a version control software. \newline
+		Git is a \textit{version control software}. \newline
 		
 		\begin{itemize}
 			\item It keeps track of every modifications.
@@ -47,8 +50,8 @@
 	\begin{frame}{Online servers for Git}
 		Store your data somewhere. \newline 
 			\begin{itemize}
-				\item Local : on your computer.
-				\item Online servers : Github, Bitbucket, GitLab, University server, etc. \newline
+				\item Local: on your computer.
+				\item Online servers: Github, Bitbucket, GitLab, your university server, etc. \newline
 			\end{itemize}
 		If you use an online server, you will also have a local version on your computer. If you want to work with other people, you have to use a server. 
 	\end{frame}
@@ -70,6 +73,20 @@ $ git config --global user.email "john.doe@email.com"
 	Please, do not use this example as is, put your real name instead!
 	\end{frame}
 
+	\begin{frame}[fragile]{Getting code: cloning}
+		To get code from a remote repository:
+		\begin{verbatim}
+		$ git clone https://address-of-the-repo.git
+		\end{verbatim}
+		Maybe some of you did, yesterday,
+		\includegraphics[width=\linewidth]{clone}
+		\pause
+		\begin{exo}
+			Clone the repository containing this talk.
+			\url{https://github.com/phubert/git_sagedays2019.git}
+		\end{exo}
+	\end{frame}
+
 	\begin{frame}[fragile]{What's happening?}
 		Lost? You wanna check if everything went well? This command is your friend!
 		\begin{verbatim}
@@ -80,19 +97,19 @@ $ git status
 		\end{center}
 	\end{frame}
 
-	\begin{frame}[fragile]{First steps: Creating a folder and initializing}
-		Two ways to start a new project : 
+	\begin{frame}[fragile]{First steps: Starting to use Git on a project}
+		Two ways to start: 
 		\begin{itemize}
-			\item Use an existant project. 
-			\item Create a new project on Github and clone it. \newline
+			\item Use an existing local project.
+			\item Create a new project on a server (e.g. \href{https://github.com/}{Github}) and clone it. \newline
 		\end{itemize}
 	
 		If your already have a project.
 		\begin{enumerate}
-		\item  In the directory containing your files run the command 
-		\texttt{git init}.
+		\item  In the directory containing your files, run the command 
+		\mbox{\texttt{git init}}.
 		
-		\item  Then you need to put your files on Github. For that, create a new \emph{empty} repository on Github and follow the instructions.
+		\item  (optional, recommended) Then, you can put your files on the server. For that, create a new \emph{empty} repository on the server and follow the instructions.
 		
 		The commands you will need are 
 		\begin{verbatim}
@@ -101,20 +118,6 @@ $ git status
 		\end{verbatim}
 		
 		\end{enumerate}   
-	\end{frame}
-
-	\begin{frame}[fragile]{Getting code: cloning}
-	To get code from a remote repository:
-	\begin{verbatim}
-$ git clone https://address-of-the-repo.git
-	\end{verbatim}
-	Maybe some of you did, yesterday,
-	\includegraphics[width=\linewidth]{clone}
-	\pause
-	\begin{exo}
-		Clone the repository containing this talk.
-		\url{https://github.com/phubert/git_sagedays2019.git}
-	\end{exo}
 	\end{frame}
 
 	\begin{frame}[fragile]{Modifications}
@@ -203,8 +206,18 @@ $ git clone https://address-of-the-repo.git
 	\includegraphics[width=\linewidth]{meld_ps}
 	\end{frame}
 
-	\begin{frame}{Branches}
-		branches
+	\begin{frame}[fragile]{Branches}
+		\footnotesize{Image from Bitbucket web site} \vspace{-.5cm}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.3]{branch.png}
+		\end{figure}
+		
+		Create a new branch : \texttt{\$ git branch BRANCH\_NAME}
+		
+		Navigate between branches : \texttt{\$ git checkout BRANCH\_NAME}
+		
+		Merge branches : \texttt{\$ git merge BRANCH\_NAME}
 	\end{frame}
 
 	\begin{frame}{Conclusion/Moral}
@@ -212,11 +225,12 @@ $ git clone https://address-of-the-repo.git
 	\vspace{1em}
 	\pause
 	{\Large Some references}
-	\begin{thebibliography}{widestlabel}
+	\begin{thebibliography}{99}
 		\bibitem{SWcarpentry} An awesome tutorial:\\ \url{swcarpentry.github.io/git-novice/}
-		\bibitem{cheatsheet} A cheatsheet: \url{swcarpentry.github.io/git-novice/reference.html}
+		\bibitem{tutos} More tutorials, by \href{https://guides.github.com/introduction/git-handbook/}{Github} and \href{https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud}{BitBucket}
+		\bibitem{cheatsheets} Some cheatsheets, by  \href{swcarpentry.github.io/git-novice/reference.html}{Software Carpentry} and \href{https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf}{Github}
 		\bibitem{servers} Bitbucket, Github and Gitlab all have extended documentation on their website
-	\end{thebibliography} 
+	\end{thebibliography}
 	\end{frame}
 
 	\begin{frame}{Your turn!}
