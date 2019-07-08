@@ -4,9 +4,13 @@
 %\usepackage[french]{babel}
 \usepackage{amsmath, amsfonts, amsthm, amssymb}
 \usepackage{hyperref}
-\usepackage{fullpage}
-\include{pythonlisting}
-\usepackage{booktabs}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+	showstringspaces=false,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue},
+	basicstyle=\small
+}
 
 \title{GIT tutorial}
 \author{Pauline Hubert and Nadia Lafrenière}
@@ -48,12 +52,18 @@
 			\item Windows : Go to \url{gitforwindows.com}
 		\end{itemize}
 	\end{frame}
-	\begin{frame}{Configuration}
-%		\begin{python}
-%			 git config --global user.name "Emma Paris"
-%			 git config --global user.email "eparis@atlassian.com"
-%		\end{python}
+	\begin{frame}[fragile]{Configuration}
+	To share code, you need to identify yourself:
+	\begin{lstlisting}[language=bash,fontadjust]
+$ git config --global user.name "John Doe"
+$ git config --global user.email "john.doe@email.com"
+	\end{lstlisting}
+	\begin{verbatim}
+		$ git config --global user.name "John Doe"
+		$ git config --global user.email "john.doe@email.com"
+	\end{verbatim}
 	\end{frame}
+
 	\begin{frame}{What's happening?}
 		git status
 	\end{frame}
